@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://bhqq70kikh3jn"]
+
+[ext_resource type="Texture2D" uid="uid://bv8wido7yi86r" path="res://scene/mushroom/SmallMushroom_Idle_1.png" id="1_k6rdg"]
+[ext_resource type="Script" uid="uid://ca4qwbhye4o72" path="res://scene/mushroom/mush_room.gd" id="1_pksvu"]
+[ext_resource type="Texture2D" uid="uid://d3iccverxc03l" path="res://scene/mushroom/SmallMushroom_Idle_2.png" id="2_pksvu"]
+[ext_resource type="Texture2D" uid="uid://cunfn5qqf61li" path="res://scene/mushroom/SmallMushroom_Idle_3.png" id="3_pj7w0"]
+[ext_resource type="Texture2D" uid="uid://vb1xmf2pnnjo" path="res://scene/mushroom/SmallMushroom_Idle_4.png" id="4_xv7l7"]
+[ext_resource type="Texture2D" uid="uid://c2spgb5urchb4" path="res://scene/mushroom/SmallMushroom_Walk_1.png" id="5_wfkid"]
+[ext_resource type="Texture2D" uid="uid://byvlypbpr0rl2" path="res://scene/mushroom/SmallMushroom_Walk_2.png" id="6_j1gos"]
+[ext_resource type="Texture2D" uid="uid://dhlpm8h8qg8pi" path="res://scene/mushroom/SmallMushroom_Walk_3.png" id="7_anl7t"]
+[ext_resource type="Texture2D" uid="uid://bttatrhklmlpr" path="res://scene/mushroom/SmallMushroom_Walk_4.png" id="8_ft75g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_11co5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_k6rdg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pksvu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pj7w0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xv7l7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_wfkid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_j1gos")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_anl7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ft75g")
+}],
+"loop": true,
+"name": &"run",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k1u61"]
+radius = 4.0
+
+[node name="MushRoom" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_pksvu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_11co5")
+animation = &"run"
+autoplay = "idle"
+frame_progress = 0.97758746
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_k1u61")
