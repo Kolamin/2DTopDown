@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://d10e0ox2don7g"]
+[gd_scene load_steps=14 format=3 uid="uid://d10e0ox2don7g"]
 
 [ext_resource type="Script" uid="uid://sfunp2v5ciss" path="res://scene/player/player.gd" id="1_oypl4"]
 [ext_resource type="Texture2D" uid="uid://cykj5wi2kijy7" path="res://scene/player/knight_f_hit_anim_f0.png" id="1_pisg7"]
 [ext_resource type="Texture2D" uid="uid://dterxuymrxetc" path="res://scene/player/knight_f_idle_anim_f0.png" id="2_oypl4"]
+[ext_resource type="PackedScene" uid="uid://723u7m0ymbvk" path="res://scene/abilities/attack_ability/attack_controller.tscn" id="2_qjg4s"]
 [ext_resource type="Texture2D" uid="uid://cfn8uhfg4cxhs" path="res://scene/player/knight_f_idle_anim_f1.png" id="3_qjg4s"]
 [ext_resource type="Texture2D" uid="uid://r81d43ftlo70" path="res://scene/player/knight_f_idle_anim_f2.png" id="4_1wtbu"]
 [ext_resource type="Texture2D" uid="uid://bpq0m60bvavlj" path="res://scene/player/knight_f_idle_anim_f3.png" id="5_p3aiu"]
@@ -62,6 +63,10 @@ radius = 5.0
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 0
 script = ExtResource("1_oypl4")
+
+[node name="AbilityManager" type="Node" parent="."]
+
+[node name="AttackController" parent="AbilityManager" instance=ExtResource("2_qjg4s")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -14)
