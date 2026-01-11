@@ -50,7 +50,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_k1u61"]
 radius = 4.0
 
-[node name="MushRoom" type="CharacterBody2D"]
+[node name="MushRoom" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 0
 script = ExtResource("1_pksvu")
 
