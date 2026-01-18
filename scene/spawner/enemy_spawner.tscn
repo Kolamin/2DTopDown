@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://savfaws8kqdj"]
+
+[ext_resource type="Script" uid="uid://dm0nrhhsj8888" path="res://scene/spawner/enemy_spawner.gd" id="1_hp8sc"]
+[ext_resource type="PackedScene" uid="uid://bhqq70kikh3jn" path="res://scene/mushroom/mush_room.tscn" id="2_0jpma"]
+
+[node name="EnemySpawner" type="Node"]
+script = ExtResource("1_hp8sc")
+mushroom_scene = ExtResource("2_0jpma")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
