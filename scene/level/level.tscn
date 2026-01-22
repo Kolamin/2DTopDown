@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://c1gahaexsci3k"]
+[gd_scene load_steps=7 format=4 uid="uid://c1gahaexsci3k"]
 
 [ext_resource type="TileSet" uid="uid://cnfnigwrnbxc2" path="res://resources/world.tres" id="1_1c01b"]
-[ext_resource type="PackedScene" uid="uid://savfaws8kqdj" path="res://scene/spawner/enemy_spawner.tscn" id="1_5lpb7"]
+[ext_resource type="PackedScene" uid="uid://savfaws8kqdj" path="res://scene/manager/spawner/enemy_spawner.tscn" id="1_5lpb7"]
 [ext_resource type="PackedScene" uid="uid://dw48rjjcv7if" path="res://scene/ui/arena_time_ui.tscn" id="1_s8ale"]
-[ext_resource type="PackedScene" uid="uid://d10e0ox2don7g" path="res://scene/player/player.tscn" id="2_hm7p5"]
+[ext_resource type="PackedScene" uid="uid://d10e0ox2don7g" path="res://scene/game_objects/player/player.tscn" id="2_hm7p5"]
 [ext_resource type="PackedScene" uid="uid://cxgfjw0s1d74q" path="res://scene/manager/arena_time_manager.tscn" id="2_plauu"]
+[ext_resource type="PackedScene" uid="uid://dfmujgg1pe8gn" path="res://scene/game_objects/exp_bottle/exp_bottle.tscn" id="6_dcgxc"]
 
 [node name="Level" type="Node"]
 
@@ -22,3 +23,12 @@ tile_set = ExtResource("1_1c01b")
 
 [node name="Player" parent="." instance=ExtResource("2_hm7p5")]
 position = Vector2(279, 200)
+
+[node name="ExpBottle" parent="." instance=ExtResource("6_dcgxc")]
+position = Vector2(165, 281)
+
+[node name="ExpBottle2" parent="." instance=ExtResource("6_dcgxc")]
+position = Vector2(268, 292)
+
+[node name="ExpBottle3" parent="." instance=ExtResource("6_dcgxc")]
+position = Vector2(398, 213)

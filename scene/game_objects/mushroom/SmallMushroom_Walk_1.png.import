@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2spgb5urchb4"
-path="res://.godot/imported/SmallMushroom_Walk_1.png-696f5240f613708a5e7e0ddc3a53cbf6.ctex"
+path="res://.godot/imported/SmallMushroom_Walk_1.png-85c668cb6212816ffb1d6965421cbf11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scene/mushroom/SmallMushroom_Walk_1.png"
-dest_files=["res://.godot/imported/SmallMushroom_Walk_1.png-696f5240f613708a5e7e0ddc3a53cbf6.ctex"]
+source_file="res://scene/game_objects/mushroom/SmallMushroom_Walk_1.png"
+dest_files=["res://.godot/imported/SmallMushroom_Walk_1.png-85c668cb6212816ffb1d6965421cbf11.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dterxuymrxetc"
-path="res://.godot/imported/knight_f_idle_anim_f0.png-dbac5fc22160391bdd3e87d82876f833.ctex"
+uid="uid://c6g8tvpkexuvp"
+path="res://.godot/imported/exp_bottle.png-fef22a1a2a50acb37156bd396f1e3d5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scene/player/knight_f_idle_anim_f0.png"
-dest_files=["res://.godot/imported/knight_f_idle_anim_f0.png-dbac5fc22160391bdd3e87d82876f833.ctex"]
+source_file="res://scene/game_objects/exp_bottle/exp_bottle.png"
+dest_files=["res://.godot/imported/exp_bottle.png-fef22a1a2a50acb37156bd396f1e3d5c.ctex"]
 
 [params]
 

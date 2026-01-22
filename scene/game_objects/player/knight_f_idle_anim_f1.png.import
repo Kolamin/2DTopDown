@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv8wido7yi86r"
-path="res://.godot/imported/SmallMushroom_Idle_1.png-83d6160c1c7a4ef93daa9269d868222b.ctex"
+uid="uid://cfn8uhfg4cxhs"
+path="res://.godot/imported/knight_f_idle_anim_f1.png-084576b8b82d275fcb0bc52e9e7d9731.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scene/mushroom/SmallMushroom_Idle_1.png"
-dest_files=["res://.godot/imported/SmallMushroom_Idle_1.png-83d6160c1c7a4ef93daa9269d868222b.ctex"]
+source_file="res://scene/game_objects/player/knight_f_idle_anim_f1.png"
+dest_files=["res://.godot/imported/knight_f_idle_anim_f1.png-084576b8b82d275fcb0bc52e9e7d9731.ctex"]
 
 [params]
 
