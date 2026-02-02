@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bhqq70kikh3jn"]
+[gd_scene load_steps=16 format=3 uid="uid://bhqq70kikh3jn"]
 
 [ext_resource type="Texture2D" uid="uid://bv8wido7yi86r" path="res://scene/game_objects/mushroom/SmallMushroom_Idle_1.png" id="1_k6rdg"]
 [ext_resource type="Script" uid="uid://ca4qwbhye4o72" path="res://scene/game_objects/mushroom/mush_room.gd" id="1_pksvu"]
@@ -6,13 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://d3iccverxc03l" path="res://scene/game_objects/mushroom/SmallMushroom_Idle_2.png" id="2_pksvu"]
 [ext_resource type="PackedScene" uid="uid://cv3ea2p8xx00m" path="res://scene/components/exp_bottle_drop_component.tscn" id="3_25r7s"]
 [ext_resource type="Texture2D" uid="uid://cunfn5qqf61li" path="res://scene/game_objects/mushroom/SmallMushroom_Idle_3.png" id="3_pj7w0"]
+[ext_resource type="PackedScene" uid="uid://dv3dv015jjxa7" path="res://scene/components/hurt_box_component.tscn" id="4_ig7km"]
 [ext_resource type="Texture2D" uid="uid://vb1xmf2pnnjo" path="res://scene/game_objects/mushroom/SmallMushroom_Idle_4.png" id="4_xv7l7"]
 [ext_resource type="Texture2D" uid="uid://c2spgb5urchb4" path="res://scene/game_objects/mushroom/SmallMushroom_Walk_1.png" id="5_wfkid"]
 [ext_resource type="Texture2D" uid="uid://byvlypbpr0rl2" path="res://scene/game_objects/mushroom/SmallMushroom_Walk_2.png" id="6_j1gos"]
 [ext_resource type="Texture2D" uid="uid://dhlpm8h8qg8pi" path="res://scene/game_objects/mushroom/SmallMushroom_Walk_3.png" id="7_anl7t"]
 [ext_resource type="Texture2D" uid="uid://bttatrhklmlpr" path="res://scene/game_objects/mushroom/SmallMushroom_Walk_4.png" id="8_ft75g"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pksvu"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ig7km"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_11co5"]
 animations = [{
@@ -63,13 +64,12 @@ script = ExtResource("1_pksvu")
 [node name="ExpBottleDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_25r7s")]
 health_component = NodePath("../HealthComponent")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 4
+[node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_ig7km")]
+health_component = NodePath("../HealthComponent")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
 position = Vector2(0, -6)
-shape = SubResource("CircleShape2D_pksvu")
+shape = SubResource("CircleShape2D_ig7km")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
@@ -81,5 +81,3 @@ frame_progress = 0.97758746
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_k1u61")
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
