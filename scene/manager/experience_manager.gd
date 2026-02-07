@@ -2,6 +2,7 @@ extends Node
 
 class_name ExperienceManager
 
+signal level_up(current_level)
 signal experience_update(current_experience:float, target_experience: float)
 
 var current_experience = 0
@@ -21,3 +22,4 @@ func on_experince_bottle_collected(experience):
 		current_experience = 0
 		target_experience += target_after_lvup
 		experience_update.emit(current_experience, target_experience)
+		level_up.emit(current_level)
