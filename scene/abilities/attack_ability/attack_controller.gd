@@ -36,7 +36,8 @@ func _on_timer_timeout():
 	var enemy_pos = enemies[0].global_position
 	
 	var attack_instance = attack_ability.instantiate() as AttackAbillity
-	player.get_parent().add_child(attack_instance)
+	var front_layer = get_tree().get_first_node_in_group("front_layer")
+	front_layer.add_child(attack_instance)
 	attack_instance.hit_box_component.damage = sword_damage
 	attack_instance.global_position = (enemy_pos + player_pos) / 2
 	
@@ -46,7 +47,7 @@ func on_upgrade_added(upgrade:AbilityUpgrade,current_upgrades:Dictionary):
 	if upgrade.id != "sword_rate":
 		return
 		
-	var upgrade_percent = current_upgrades["sword_rate"]["quantity"] * .8
+	var upgrade_percent = current_upgrades["sword_rate"]["quantity"] * .1
 	timer.wait_time = max(0.1, default_attack_speed * (1 - upgrade_percent))
 	timer.start()
 	
