@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bhqq70kikh3jn"]
+[gd_scene load_steps=17 format=3 uid="uid://bhqq70kikh3jn"]
 
 [ext_resource type="Texture2D" uid="uid://bv8wido7yi86r" path="res://scene/game_objects/mushroom/SmallMushroom_Idle_1.png" id="1_k6rdg"]
 [ext_resource type="Script" uid="uid://ca4qwbhye4o72" path="res://scene/game_objects/mushroom/mush_room.gd" id="1_pksvu"]
@@ -55,6 +55,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_k1u61"]
 radius = 4.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wndns"]
+radius = 5.0
+
 [node name="MushRoom" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
 collision_mask = 5
@@ -69,7 +72,7 @@ health_component = NodePath("../HealthComponent")
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
-position = Vector2(0, -6)
+position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_ig7km")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -80,5 +83,13 @@ autoplay = "idle"
 frame_progress = 0.97758746
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
+position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_k1u61")
+
+[node name="EnemyHitBox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_wndns")

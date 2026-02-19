@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://d10e0ox2don7g"]
+[gd_scene load_steps=17 format=3 uid="uid://d10e0ox2don7g"]
 
 [ext_resource type="Script" uid="uid://sfunp2v5ciss" path="res://scene/game_objects/player/player.gd" id="1_oypl4"]
 [ext_resource type="Texture2D" uid="uid://cykj5wi2kijy7" path="res://scene/game_objects/player/knight_f_hit_anim_f0.png" id="1_pisg7"]
 [ext_resource type="Texture2D" uid="uid://dterxuymrxetc" path="res://scene/game_objects/player/knight_f_idle_anim_f0.png" id="2_oypl4"]
 [ext_resource type="PackedScene" uid="uid://723u7m0ymbvk" path="res://scene/abilities/attack_ability/attack_controller.tscn" id="2_qjg4s"]
+[ext_resource type="PackedScene" uid="uid://c2cxdh4hitnja" path="res://scene/components/health_component.tscn" id="3_bjes5"]
 [ext_resource type="Texture2D" uid="uid://cfn8uhfg4cxhs" path="res://scene/game_objects/player/knight_f_idle_anim_f1.png" id="3_qjg4s"]
 [ext_resource type="Texture2D" uid="uid://r81d43ftlo70" path="res://scene/game_objects/player/knight_f_idle_anim_f2.png" id="4_1wtbu"]
 [ext_resource type="Texture2D" uid="uid://bpq0m60bvavlj" path="res://scene/game_objects/player/knight_f_idle_anim_f3.png" id="5_p3aiu"]
@@ -63,6 +64,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_fspl2"]
 radius = 5.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fpv3a"]
+radius = 5.0
+height = 18.0
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 0
 script = ExtResource("1_oypl4")
@@ -71,11 +76,16 @@ script = ExtResource("1_oypl4")
 
 [node name="AttackController" parent="AbilityManager" instance=ExtResource("2_qjg4s")]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="HealthComponent" parent="." instance=ExtResource("3_bjes5")]
+
+[node name="GracePeriod" type="Timer" parent="."]
+one_shot = true
+
+[node name="PickUpArea" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpArea"]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_heqc5")
 
@@ -91,3 +101,14 @@ shape = SubResource("CircleShape2D_fspl2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+
+[node name="PlayerHurtBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtBox"]
+position = Vector2(0, -9)
+shape = SubResource("CapsuleShape2D_fpv3a")
+
+[connection signal="area_entered" from="PlayerHurtBox" to="." method="_on_player_hurt_box_area_entered"]
+[connection signal="area_exited" from="PlayerHurtBox" to="." method="_on_player_hurt_box_area_exited"]
