@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://c1gahaexsci3k"]
+[gd_scene load_steps=12 format=4 uid="uid://c1gahaexsci3k"]
 
 [ext_resource type="TileSet" uid="uid://cnfnigwrnbxc2" path="res://resources/world.tres" id="1_1c01b"]
 [ext_resource type="PackedScene" uid="uid://savfaws8kqdj" path="res://scene/manager/spawner/enemy_spawner.tscn" id="1_5lpb7"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cx3dx2e3krvbx" path="res://scene/manager/upgrade_manager.tscn" id="6_xfrsa"]
 [ext_resource type="Script" uid="uid://j05d8drmmsak" path="res://resources/upgrades/ability_upgrade.gd" id="7_cqsgc"]
 [ext_resource type="Resource" uid="uid://b2rtv5202c1p5" path="res://resources/upgrades/sword_rate.tres" id="8_gavly"]
+[ext_resource type="Script" uid="uid://c6sg7jhey0htq" path="res://scene/level/camera_2d.gd" id="11_gavly"]
 
 [node name="Level" type="Node"]
 
@@ -38,6 +39,11 @@ tile_set = ExtResource("1_1c01b")
 y_sort_enabled = true
 
 [node name="Player" parent="Back" instance=ExtResource("2_hm7p5")]
+unique_name_in_owner = true
 position = Vector2(279, 200)
 
 [node name="Front" type="Node2D" parent="." groups=["front_layer"]]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+script = ExtResource("11_gavly")
