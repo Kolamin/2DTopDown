@@ -12,4 +12,8 @@ wait_time = 600.0
 one_shot = true
 autostart = true
 
+[node name="DifficultyTimer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DifficultyTimer" to="." method="_on_dificulty_timer_timeout"]
