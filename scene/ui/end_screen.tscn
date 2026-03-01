@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfs3mbo8fkvfs"]
+[gd_scene load_steps=2 format=3 uid="uid://bjvqssei4afw6"]
 
-[ext_resource type="Script" uid="uid://bm5k2ythsso21" path="res://scene/ui/end_screen.gd" id="1_tpqo7"]
+[ext_resource type="Script" path="res://scene/ui/end_screen.gd" id="1_vhmv7"]
 
 [node name="EndScreen" type="CanvasLayer"]
 process_mode = 3
-script = ExtResource("1_tpqo7")
+script = ExtResource("1_vhmv7")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15

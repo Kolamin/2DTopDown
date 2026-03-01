@@ -1,13 +1,11 @@
 extends PanelContainer
-
 class_name AbilityUpgradeCard
 
 signal card_selected
 
-@onready var name_label = $VBoxContainer/NameLabel
-@onready var description_label = $VBoxContainer/DescriptionLabel
 
-
+@onready var name_label = %NameLabel
+@onready var description_label = %DescriptionLabel
 
 
 func set_ability_upgrade (upgrade: AbilityUpgrade):
@@ -15,6 +13,6 @@ func set_ability_upgrade (upgrade: AbilityUpgrade):
 	description_label.text = upgrade.description
 
 
-func _on_gui_input(event: InputEvent) -> void:
+func _on_gui_input(event):
 	if event.is_action_pressed("left_click"):
 		card_selected.emit()

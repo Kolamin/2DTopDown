@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b1lm46yrdqfh1"]
+[gd_scene load_steps=8 format=3 uid="uid://dbb6jvirbr1te"]
 
-[ext_resource type="Script" uid="uid://dkmd2ddcstn8a" path="res://scene/abilities/attack_ability/attack_ability.gd" id="1_73mma"]
-[ext_resource type="Texture2D" uid="uid://f3a32u1gia02" path="res://scene/abilities/attack_ability/attack_ability.png" id="1_g0mo5"]
-[ext_resource type="PackedScene" uid="uid://dwg17swuaihwd" path="res://scene/components/hit_box_component.tscn" id="2_lawwq"]
+[ext_resource type="Script" path="res://scene/abilities/attack_ability/attack_ability.gd" id="1_8q3cs"]
+[ext_resource type="Texture2D" uid="uid://pxp18mpneqyc" path="res://scene/abilities/attack_ability/attack_ability.png" id="1_ksi6a"]
+[ext_resource type="PackedScene" uid="uid://b2xe2q0ii2gk4" path="res://scene/components/hit_box_component.tscn" id="2_lm5kn"]
 
-[sub_resource type="Animation" id="Animation_g0mo5"]
+[sub_resource type="Animation" id="Animation_cu0l4"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -43,8 +43,9 @@ tracks/2/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_lawwq"]
+[sub_resource type="Animation" id="Animation_sdhjs"]
 resource_name = "attack_animation"
+length = 0.75
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -54,9 +55,9 @@ tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.4, 0.75),
-"transitions": PackedFloat32Array(1, 0.4506252, 1.8660669, 1),
+"transitions": PackedFloat32Array(1, 0.466517, 1.86607, 1),
 "update": 0,
-"values": [0.0, -0.5235987755982988, 3.141592653589793, 0.0]
+"values": [0.0, -0.523599, 3.14159, 0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -65,10 +66,10 @@ tracks/1/path = NodePath("Sprite2D:scale")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.15, 0.6, 0.75, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 3.363586, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.15, 0.4, 0.6, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 4.14106, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1.25, 1.25), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0), Vector2(1.0297619, 1.0297619)]
+"values": [Vector2(0, 0), Vector2(1.25, 1.25), Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1), Vector2(0, 0)]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -97,31 +98,31 @@ tracks/3/keys = {
 "values": [true, false, true]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_73mma"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4xti6"]
 _data = {
-&"RESET": SubResource("Animation_g0mo5"),
-&"attack_animation": SubResource("Animation_lawwq")
+"RESET": SubResource("Animation_cu0l4"),
+"attack_animation": SubResource("Animation_sdhjs")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lawwq"]
-size = Vector2(33.5, 48)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bpptp"]
+size = Vector2(38, 58)
 
 [node name="AttackAbility" type="Node2D"]
-script = ExtResource("1_73mma")
+script = ExtResource("1_8q3cs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_g0mo5")
+texture = ExtResource("1_ksi6a")
 offset = Vector2(0, -12)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_73mma")
+"": SubResource("AnimationLibrary_4xti6")
 }
 autoplay = "attack_animation"
 
-[node name="HitBoxComponent" parent="." instance=ExtResource("2_lawwq")]
+[node name="HitBoxComponent" parent="." instance=ExtResource("2_lm5kn")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
-position = Vector2(16.25, 0)
-shape = SubResource("RectangleShape2D_lawwq")
+position = Vector2(19, 0)
+shape = SubResource("RectangleShape2D_bpptp")
 disabled = true

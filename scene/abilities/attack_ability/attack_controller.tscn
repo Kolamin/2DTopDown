@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://723u7m0ymbvk"]
+[gd_scene load_steps=3 format=3 uid="uid://d02yl8nx3spsb"]
 
-[ext_resource type="Script" uid="uid://bdj0sd4gwhowq" path="res://scene/abilities/attack_ability/attack_controller.gd" id="1_16i1u"]
-[ext_resource type="PackedScene" uid="uid://b1lm46yrdqfh1" path="res://scene/abilities/attack_ability/attack_ability.tscn" id="2_v10p4"]
+[ext_resource type="Script" path="res://scene/abilities/attack_ability/attack_controller.gd" id="1_dtw86"]
+[ext_resource type="PackedScene" uid="uid://dbb6jvirbr1te" path="res://scene/abilities/attack_ability/attack_ability.tscn" id="2_ieqgc"]
 
 [node name="AttackController" type="Node"]
-script = ExtResource("1_16i1u")
-attack_ability = ExtResource("2_v10p4")
+script = ExtResource("1_dtw86")
+attack_ability = ExtResource("2_ieqgc")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.5
