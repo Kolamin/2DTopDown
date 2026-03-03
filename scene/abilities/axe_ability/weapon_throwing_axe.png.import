@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di8bh7fwjpwla"
-path="res://.godot/imported/knight_f_idle_anim_f2.png-daed8b9b3c4dd9c912dcf3a5a2bae9f8.ctex"
+uid="uid://qq4s26m3pufx"
+path="res://.godot/imported/weapon_throwing_axe.png-02613bb43ece36e9246138d5df89a5b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scene/game_objects/player/knight_f_idle_anim_f2.png"
-dest_files=["res://.godot/imported/knight_f_idle_anim_f2.png-daed8b9b3c4dd9c912dcf3a5a2bae9f8.ctex"]
+source_file="res://scene/abilities/axe_ability/weapon_throwing_axe.png"
+dest_files=["res://.godot/imported/weapon_throwing_axe.png-02613bb43ece36e9246138d5df89a5b8.ctex"]
 
 [params]
 
