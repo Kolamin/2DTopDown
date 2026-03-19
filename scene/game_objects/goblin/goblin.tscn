@@ -1,0 +1,101 @@
+[gd_scene load_steps=19 format=3 uid="uid://bsm2lamgdjcg6"]
+
+[ext_resource type="Script" uid="uid://6p74yj0iwuxo" path="res://scene/game_objects/mushroom/mushroom.gd" id="1_jr04c"]
+[ext_resource type="PackedScene" uid="uid://b8y2uebjih13l" path="res://scene/components/death_component.tscn" id="2_df7ma"]
+[ext_resource type="Texture2D" uid="uid://bekuukysud35s" path="res://scene/game_objects/goblin/goblin_idle_anim_f0.png" id="3_ra7gy"]
+[ext_resource type="PackedScene" uid="uid://bknx8pl355mwx" path="res://scene/components/health_component.tscn" id="4_se60v"]
+[ext_resource type="PackedScene" uid="uid://c6p3602p5fvng" path="res://scene/components/exp_bottle_drop_component.tscn" id="5_6onfi"]
+[ext_resource type="PackedScene" uid="uid://bbjei16oy5wtp" path="res://scene/components/hurt_box_component.tscn" id="6_6bvge"]
+[ext_resource type="PackedScene" uid="uid://cxv7o0np02wj4" path="res://scene/components/movement_component.tscn" id="6_df7ma"]
+[ext_resource type="Texture2D" uid="uid://mriua2khw4dg" path="res://scene/game_objects/goblin/goblin_idle_anim_f1.png" id="7_wvx37"]
+[ext_resource type="Texture2D" uid="uid://c2ycju2557xig" path="res://scene/game_objects/goblin/goblin_idle_anim_f2.png" id="8_cu0c4"]
+[ext_resource type="Texture2D" uid="uid://jktugrocdeq2" path="res://scene/game_objects/goblin/goblin_idle_anim_f3.png" id="9_yod6d"]
+[ext_resource type="Texture2D" uid="uid://n6txmougue3x" path="res://scene/game_objects/goblin/goblin_run_anim_f0.png" id="10_oladr"]
+[ext_resource type="Texture2D" uid="uid://cgchst8pc0s4d" path="res://scene/game_objects/goblin/goblin_run_anim_f1.png" id="11_iwveg"]
+[ext_resource type="Texture2D" uid="uid://cvh4idojvw1iv" path="res://scene/game_objects/goblin/goblin_run_anim_f2.png" id="12_x7itd"]
+[ext_resource type="Texture2D" uid="uid://ytnh1pytlogk" path="res://scene/game_objects/goblin/goblin_run_anim_f3.png" id="13_ore7t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5bs6e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pfntg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ra7gy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wvx37")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_cu0c4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_yod6d")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_oladr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_iwveg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_x7itd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ore7t")
+}],
+"loop": true,
+"name": &"run",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ta4dj"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5rnvk"]
+radius = 5.09902
+
+[node name="Goblin" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_jr04c")
+death_scene = ExtResource("2_df7ma")
+sprite = ExtResource("3_ra7gy")
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_se60v")]
+
+[node name="ExpBottleDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_6onfi")]
+health_component = NodePath("../HealthComponent")
+
+[node name="MovementComponent" parent="." instance=ExtResource("6_df7ma")]
+
+[node name="HurtBoxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("6_6bvge")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_5bs6e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_pfntg")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_ta4dj")
+
+[node name="EnemyHitBox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_5rnvk")
