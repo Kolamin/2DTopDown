@@ -22,12 +22,6 @@ func _process(delta):
 	if face_sign != 0:
 		animated_sprite_2d.scale.x = face_sign 
 
-
-#func get_direction_to_player():
-	#var player = get_tree().get_first_node_in_group("player") as Node2D
-	#if player != null:
-		#return (player.global_position - global_position).normalized()
-	#return Vector2(0,0)
 	
 
 func on_died():
@@ -36,6 +30,5 @@ func on_died():
 	back_layer.add_child(death_instance)
 	death_instance.gpu_particles_2d.texture = sprite
 	death_instance.sprite_offset.position.y = animated_sprite_2d.offset.y
-	print(death_instance.sprite_offset.position.y)
 	death_instance.global_position = global_position
 	queue_free()
