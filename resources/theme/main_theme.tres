@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dn78jtmhy82wv"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dn78jtmhy82wv"]
 
 [ext_resource type="Texture2D" uid="uid://b821r0c4xwqc" path="res://assets/ui_panel.png" id="1_70gfe"]
 [ext_resource type="FontFile" uid="uid://cxskm4xrqfqch" path="res://resources/theme/Bitfantasy.ttf" id="1_rjbnf"]
@@ -20,8 +20,12 @@ content_margin_bottom = 4.0
 texture = ExtResource("2_jtx1y")
 region_rect = Rect2(2, 2, 12, 12)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u2hhs"]
+bg_color = Color(0.133333, 0.133333, 0.133333, 1)
+
 [resource]
 default_font = ExtResource("1_rjbnf")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_jtx1y")
 PanelContainer2/base_type = &"PanelContainer"
 PanelContainer2/styles/panel = SubResource("StyleBoxTexture_1ywy2")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_u2hhs")
