@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b0ump57ta6uh8"]
+[gd_scene load_steps=22 format=3 uid="uid://b0ump57ta6uh8"]
 
 [ext_resource type="Script" uid="uid://dxesq50tmjf4b" path="res://scene/game_objects/player/player.gd" id="1_8oolj"]
 [ext_resource type="Texture2D" uid="uid://c1tcfei7yvse7" path="res://scene/game_objects/player/knight_f_hit_anim_f0.png" id="1_i2o30"]
@@ -10,6 +10,7 @@
 [ext_resource type="Shader" uid="uid://bdyjvr00nqwqm" path="res://scene/components/flash_component.gdshader" id="4_0ygly"]
 [ext_resource type="Texture2D" uid="uid://di8bh7fwjpwla" path="res://scene/game_objects/player/knight_f_idle_anim_f2.png" id="4_6n3le"]
 [ext_resource type="Texture2D" uid="uid://c7ehbgi4m6nx1" path="res://scene/game_objects/player/knight_f_idle_anim_f3.png" id="5_5r35s"]
+[ext_resource type="PackedScene" uid="uid://cxv7o0np02wj4" path="res://scene/components/movement_component.tscn" id="6_0ygly"]
 [ext_resource type="Texture2D" uid="uid://clu4onj7mwifa" path="res://scene/game_objects/player/knight_f_run_anim_f0.png" id="6_kiy7l"]
 [ext_resource type="Texture2D" uid="uid://bdm4mspvpgybf" path="res://scene/game_objects/player/knight_f_run_anim_f1.png" id="7_vgjvu"]
 [ext_resource type="Texture2D" uid="uid://bsmedwf2v1q1b" path="res://scene/game_objects/player/knight_f_run_anim_f2.png" id="8_s6gq3"]
@@ -97,6 +98,10 @@ sprite = NodePath("../AnimatedSprite2D")
 flash_material = SubResource("ShaderMaterial_wfn55")
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_5ccbm")]
+
+[node name="MovementComponent" parent="." instance=ExtResource("6_0ygly")]
+max_speed = 90
+acceleration = 25.0
 
 [node name="GracePeriod" type="Timer" parent="."]
 wait_time = 0.2
